@@ -1,13 +1,18 @@
 {
-    "name": "magento-ecg/coding-standard",
-    "description": "A set of PHP_CodeSniffer rules and sniffs.",
-    "homepage": "https://github.com/magento-ecg/coding-standard",
+    "name": "onestic/coding-standard",
+    "description": "A fork of magento-ecg/coding-standard set of PHP_CodeSniffer rules and sniffs.",
+    "homepage": "https://github.com/onestic/coding-standard",
     "license": "MIT",
     "authors": [
         {
             "name": "Magento Expert Consulting Group",
             "homepage": "http://magentocommerce.com/consulting",
             "role": "Maintainer"
+        }, 
+        {
+            "name": "Onestic",
+            "homepage": "https://onestic.com",
+            "role": "Forkers"
         }
     ],
     "require": {

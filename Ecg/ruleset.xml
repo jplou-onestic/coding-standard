@@ -143,5 +143,4 @@
     </rule>
     <rule ref="Ecg.ControlStructures.ElseIfDeclaration"/>
 
-    <rule ref="PSR2.Classes.ClassDeclaration"/>
 </ruleset>

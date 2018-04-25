@@ -143,4 +143,6 @@
     </rule>
     <rule ref="Ecg.ControlStructures.ElseIfDeclaration"/>
 
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
 </ruleset>

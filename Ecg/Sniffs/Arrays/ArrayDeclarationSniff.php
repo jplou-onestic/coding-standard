@@ -322,24 +322,6 @@ class ArrayDeclarationSniff implements Sniff
             if ($fix === true) {
                 $phpcsFile->fixer->addNewlineBefore($arrayEnd);
             }
-        } else if ($tokens[$arrayEnd]['column'] !== $keywordStart) {
-            // Check the closing bracket is lined up under the "a" in array.
-            $expected = ($keywordStart - 1);
-            $found    = ($tokens[$arrayEnd]['column'] - 1);
-            $error    = 'Closing parenthesis not aligned correctly; expected %s space(s) but found %s';
-            $data     = [
-                $expected,
-                $found,
-            ];
-
-            $fix = $phpcsFile->addFixableError($error, $arrayEnd, 'CloseBraceNotAligned', $data);
-            if ($fix === true) {
-                if ($found === 0) {
-                    $phpcsFile->fixer->addContent(($arrayEnd - 1), str_repeat(' ', $expected));
-                } else {
-                    $phpcsFile->fixer->replaceToken(($arrayEnd - 1), str_repeat(' ', $expected));
-                }
-            }
         }//end if
 
         $keyUsed    = false;
@@ -603,27 +585,6 @@ class ArrayDeclarationSniff implements Sniff
 
                         $phpcsFile->fixer->addNewlineBefore($value['value']);
                     }
-                } else if ($tokens[($value['value'] - 1)]['code'] === T_WHITESPACE) {
-                    $expected = $keywordStart;
-
-                    $first = $phpcsFile->findFirstOnLine(T_WHITESPACE, $value['value'], true);
-                    $found = ($tokens[$first]['column'] - 1);
-                    if ($found !== $expected) {
-                        $error = 'Array value not aligned correctly; expected %s spaces but found %s';
-                        $data  = [
-                            $expected,
-                            $found,
-                        ];
-
-                        $fix = $phpcsFile->addFixableError($error, $value['value'], 'ValueNotAligned', $data);
-                        if ($fix === true) {
-                            if ($found === 0) {
-                                $phpcsFile->fixer->addContent(($value['value'] - 1), str_repeat(' ', $expected));
-                            } else {
-                                $phpcsFile->fixer->replaceToken(($value['value'] - 1), str_repeat(' ', $expected));
-                            }
-                        }
-                    }
                 }//end if
 
                 $lastValueLine = $tokens[$value['value']]['line'];
@@ -702,80 +663,6 @@ class ArrayDeclarationSniff implements Sniff
 
                 continue;
             }
-
-            if ($tokens[$index['index']]['column'] !== $indicesStart) {
-                $expected = ($indicesStart - 1);
-                $found    = ($tokens[$index['index']]['column'] - 1);
-                $error    = 'Array key not aligned correctly; expected %s spaces but found %s';
-                $data     = [
-                    $expected,
-                    $found,
-                ];
-
-                $fix = $phpcsFile->addFixableError($error, $index['index'], 'KeyNotAligned', $data);
-                if ($fix === true) {
-                    if ($found === 0) {
-                        $phpcsFile->fixer->addContent(($index['index'] - 1), str_repeat(' ', $expected));
-                    } else {
-                        $phpcsFile->fixer->replaceToken(($index['index'] - 1), str_repeat(' ', $expected));
-                    }
-                }
-            }
-
-            $arrowStart = ($tokens[$index['index']]['column'] + $maxLength + 1);
-            if ($tokens[$index['arrow']]['column'] !== $arrowStart) {
-                $expected = ($arrowStart - (strlen($index['index_content']) + $tokens[$index['index']]['column']));
-                $found    = ($tokens[$index['arrow']]['column'] - (strlen($index['index_content']) + $tokens[$index['index']]['column']));
-                $error    = 'Array double arrow not aligned correctly; expected %s space(s) but found %s';
-                $data     = [
-                    $expected,
-                    $found,
-                ];
-
-                $fix = $phpcsFile->addFixableError($error, $index['arrow'], 'DoubleArrowNotAligned', $data);
-                if ($fix === true) {
-                    if ($found === 0) {
-                        $phpcsFile->fixer->addContent(($index['arrow'] - 1), str_repeat(' ', $expected));
-                    } else {
-                        $phpcsFile->fixer->replaceToken(($index['arrow'] - 1), str_repeat(' ', $expected));
-                    }
-                }
-
-                continue;
-            }
-
-            $valueStart = ($arrowStart + 3);
-            if ($tokens[$index['value']]['column'] !== $valueStart) {
-                $expected = ($valueStart - ($tokens[$index['arrow']]['length'] + $tokens[$index['arrow']]['column']));
-                $found    = ($tokens[$index['value']]['column'] - ($tokens[$index['arrow']]['length'] + $tokens[$index['arrow']]['column']));
-                if ($found < 0) {
-                    $found = 'newline';
-                }
-
-                $error = 'Array value not aligned correctly; expected %s space(s) but found %s';
-                $data  = [
-                    $expected,
-                    $found,
-                ];
-
-                $fix = $phpcsFile->addFixableError($error, $index['arrow'], 'ValueNotAligned', $data);
-                if ($fix === true) {
-                    if ($found === 'newline') {
-                        $prev = $phpcsFile->findPrevious(T_WHITESPACE, ($index['value'] - 1), null, true);
-                        $phpcsFile->fixer->beginChangeset();
-                        for ($i = ($prev + 1); $i < $index['value']; $i++) {
-                            $phpcsFile->fixer->replaceToken($i, '');
-                        }
-
-                        $phpcsFile->fixer->replaceToken(($index['value'] - 1), str_repeat(' ', $expected));
-                        $phpcsFile->fixer->endChangeset();
-                    } else if ($found === 0) {
-                        $phpcsFile->fixer->addContent(($index['value'] - 1), str_repeat(' ', $expected));
-                    } else {
-                        $phpcsFile->fixer->replaceToken(($index['value'] - 1), str_repeat(' ', $expected));
-                    }
-                }
-            }//end if
 
             // Check each line ends in a comma.
             $valueLine = $tokens[$index['value']]['line'];

@@ -83,7 +83,7 @@
     <rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
 
     <rule ref="Generic.ControlStructures.InlineControlStructure"/>
-
+    <rule ref="PSR2.Classes.ClassDeclaration"/>
     <!-- ECG rules -->
     <rule ref="Generic.Classes.DuplicateClassName"/>
     <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
@@ -135,14 +135,7 @@
             <property name="spacing" value="1"/>
         </properties>
     </rule>
-
-    <rule ref="Squiz.WhiteSpace.FunctionSpacing">
-        <properties>
-            <property name="spacing" value="1"/>
-        </properties>
-    </rule>
     <rule ref="Ecg.ControlStructures.ElseIfDeclaration"/>
-
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 
 </ruleset>

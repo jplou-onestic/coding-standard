@@ -52,6 +52,12 @@ class SpacingBeforeSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
+
+        $fp = fopen("/home/jplou/coding-standard/debug.log", "w+");
+        fwrite($fp, PHP_EOL);
+        fwrite($fp, PHP_EOL);
+        fwrite($fp, '*******');
+
         $tokens         = $phpcsFile->getTokens();
         $current        = $stackPtr;
         $previousLine   = $tokens[$stackPtr]['line'] - 1;
@@ -60,7 +66,11 @@ class SpacingBeforeSniff implements Sniff
         while ($tokens[$current]['line'] >= $previousLine) {
             if ($tokens[$current]['line'] == $previousLine &&
                 $tokens[$current]['type'] != 'T_WHITESPACE' &&
-                $tokens[$current]['type'] != 'T_COMMENT'
+                $tokens[$current]['type'] != 'T_COMMENT' &&
+                $tokens[$current]['type'] != 'T_DOC_COMMENT_OPEN_TAG' &&
+                $tokens[$current]['type'] != 'T_DOC_COMMENT_WHITESPACE' &&
+                $tokens[$current]['type'] != 'T_DOC_COMMENT_STRING' &&
+                $tokens[$current]['type'] != 'T_DOC_COMMENT_CLOSE_TAG'
             ) {
                 $prevLineTokens[] = $tokens[$current]['type'];
             }

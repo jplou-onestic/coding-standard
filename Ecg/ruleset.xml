@@ -138,4 +138,15 @@
     <rule ref="Ecg.ControlStructures.ElseIfDeclaration"/>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 
+    <!-- Check var names, but we don't want leading underscores for private vars -->
+    <rule ref="Zend.NamingConventions.ValidVariableName"/>
+    <rule ref="Zend.NamingConventions.ValidVariableName.PrivateNoUnderscore">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Private methods MUST not be prefixed with an underscore -->
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <type>error</type>
+    </rule>
+
 </ruleset>

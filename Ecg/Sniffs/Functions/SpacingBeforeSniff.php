@@ -52,12 +52,6 @@ class SpacingBeforeSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
-
-        $fp = fopen("/home/jplou/coding-standard/debug.log", "w+");
-        fwrite($fp, PHP_EOL);
-        fwrite($fp, PHP_EOL);
-        fwrite($fp, '*******');
-
         $tokens         = $phpcsFile->getTokens();
         $current        = $stackPtr;
         $previousLine   = $tokens[$stackPtr]['line'] - 1;

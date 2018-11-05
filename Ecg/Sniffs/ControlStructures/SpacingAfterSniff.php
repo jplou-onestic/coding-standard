@@ -61,6 +61,10 @@ class SpacingAfterSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
+        if (substr($phpcsFile->getFileName(), -5) === 'phtml') {
+            return;
+        }
+
         $tokens = $phpcsFile->getTokens();
 
         if (isset($tokens[$stackPtr]['parenthesis_opener']) === true

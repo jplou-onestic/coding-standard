@@ -58,6 +58,10 @@ class SpacingBeforeSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
+        if (substr($phpcsFile->getFileName(), -5) === 'phtml') {
+            return;
+        }
+
         $tokens         = $phpcsFile->getTokens();
         $current        = $stackPtr;
         $previousLine   = $tokens[$stackPtr]['line'] - 1;

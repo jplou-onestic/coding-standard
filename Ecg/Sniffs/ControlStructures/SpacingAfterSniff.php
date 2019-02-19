@@ -21,11 +21,7 @@ class SpacingAfterSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
-                                   'PHP',
-                                   'JS',
-                                  );
-
+    public $supportedTokenizers = array('PHP');
 
     /**
      * Returns an array of tokens this test wants to listen for.

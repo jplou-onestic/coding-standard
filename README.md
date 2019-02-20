@@ -19,6 +19,15 @@ Both Magento and Magento 2 are supported.
 
 # Installation
 
+For using in Onestic M1 projects and setup in phpStorm, please check installation info at:
+
+https://github.com/onestic/coding-standard-files
+
+Note that here we have our recompiled phpcs.phar  
+
+
+__For general purposes:__
+
 Before starting using our coding standard install [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).
 
 The recommended installation method for PHPCS is globally with Composer:

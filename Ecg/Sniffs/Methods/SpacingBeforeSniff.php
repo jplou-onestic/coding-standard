@@ -1,13 +1,13 @@
 <?php
 /*
- * Checks that control structures have a blank line before them.
+ * Checks that function structures have a blank line before them.
  * Based on Symfony2_Sniffs_Formatting_BlankLineBeforeReturnSniff sniffer
  *
  * @author    Jesús Plou <jplou@onestic.com>
  * @copyright 2017 Onestic
  */
 
-namespace Ecg\Sniffs\Functions;
+namespace Ecg\Sniffs\Methods;
 
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
@@ -21,11 +21,7 @@ class SpacingBeforeSniff implements Sniff
      *
      * @var array
      */
-    public $supportedTokenizers = array(
-                                   'PHP',
-                                   'JS',
-                                  );
-
+    public $supportedTokenizers = array('PHP');
 
     /**
      * Returns an array of tokens this test wants to listen for.

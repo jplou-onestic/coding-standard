@@ -71,7 +71,6 @@
         <severity>0</severity>
     </rule>
 
-    <rule ref="Squiz.ControlStructures.ControlSignature"/>
     <rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
         <exclude-pattern>*.phtml</exclude-pattern>
     </rule>

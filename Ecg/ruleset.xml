@@ -14,6 +14,7 @@
     </rule>
 
     <rule ref="Generic.Files.LineLength">
+        <exclude-pattern>*.phtml</exclude-pattern>
         <properties>
             <property name="lineLimit" value="120"/>
             <property name="absoluteLineLimit" value="0"/>
@@ -70,7 +71,6 @@
         <severity>0</severity>
     </rule>
 
-    <rule ref="Squiz.ControlStructures.ControlSignature"/>
     <rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
         <exclude-pattern>*.phtml</exclude-pattern>
     </rule>

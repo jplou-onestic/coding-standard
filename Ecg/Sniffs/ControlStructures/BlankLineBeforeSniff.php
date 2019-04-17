@@ -13,7 +13,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
 
-class SpacingBeforeSniff implements Sniff
+class BlankLineBeforeSniff implements Sniff
 {
 
     /**
@@ -54,10 +54,6 @@ class SpacingBeforeSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
-        if (substr($phpcsFile->getFileName(), -5) === 'phtml') {
-            return;
-        }
-
         $tokens         = $phpcsFile->getTokens();
         $current        = $stackPtr;
         $previousLine   = $tokens[$stackPtr]['line'] - 1;

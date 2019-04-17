@@ -3,6 +3,7 @@
     <description>Magento ECG Coding Standard</description>
     <arg name="extensions" value="php,phtml"/>
     <exclude-pattern>*.js</exclude-pattern>
+
     <!-- PSR-1 standard rules -->
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
 
@@ -19,19 +20,13 @@
             <property name="lineLimit" value="120"/>
             <property name="absoluteLineLimit" value="0"/>
         </properties>
+        <type>warning</type>
     </rule>
 
-    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
-    </rule>
-    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.StartFile">
-        <severity>0</severity>
-    </rule>
-    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EndFile">
-        <severity>0</severity>
-    </rule>
-    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines">
-        <severity>0</severity>
-    </rule>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.StartFile"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EndFile"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines"/>
 
     <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 
@@ -42,9 +37,7 @@
     </rule>
     <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
 
-
     <rule ref="Generic.PHP.LowerCaseKeyword"/>
-
     <rule ref="Generic.PHP.LowerCaseConstant"/>
 
     <rule ref="Squiz.Scope.MethodScope"/>
@@ -58,18 +51,14 @@
             <property name="equalsSpacing" value="1"/>
         </properties>
     </rule>
-    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterHint">
-        <severity>0</severity>
-    </rule>
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterHint"/>
 
     <rule ref="PEAR.Functions.ValidDefaultValue"/>
 
     <rule ref="Squiz.Functions.MultiLineFunctionDeclaration"/>
 
     <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
-    <rule ref="PSR2.Methods.FunctionCallSignature.SpaceAfterCloseBracket">
-        <severity>0</severity>
-    </rule>
+    <rule ref="PSR2.Methods.FunctionCallSignature.SpaceAfterCloseBracket"/>
 
     <rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
         <exclude-pattern>*.phtml</exclude-pattern>
@@ -87,6 +76,7 @@
 
     <rule ref="Generic.ControlStructures.InlineControlStructure"/>
     <rule ref="PSR2.Classes.ClassDeclaration"/>
+
     <!-- ECG rules -->
     <rule ref="Generic.Classes.DuplicateClassName"/>
     <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
@@ -141,15 +131,11 @@
     <rule ref="Ecg.ControlStructures.ElseIfDeclaration"/>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 
-    <!-- Check var names, but we don't want leading underscores for private vars -->
-    <rule ref="Zend.NamingConventions.ValidVariableName"/>
-    <rule ref="Zend.NamingConventions.ValidVariableName.PrivateNoUnderscore">
-        <severity>0</severity>
+    <rule ref="Ecg.ControlStructures.BlankLineBefore">
+        <exclude-pattern>*.phtml</exclude-pattern>
     </rule>
-
-    <!-- Private methods MUST not be prefixed with an underscore -->
-    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
-        <type>error</type>
+    <rule ref="Ecg.ControlStructures.SpacingAfter">
+        <exclude-pattern>*.phtml</exclude-pattern>
     </rule>
 
 </ruleset>

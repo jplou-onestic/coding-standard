@@ -26,9 +26,6 @@ class MethodDeclarationSniff extends AbstractScopeSniff
 
     }//end __construct()
 
-    private $whiteList = ['_construct'];
-
-
     /**
      * Processes the function tokens within the class.
      *
@@ -48,7 +45,7 @@ class MethodDeclarationSniff extends AbstractScopeSniff
             return;
         }
 
-        if (in_array($methodName, $this->whiteList)!==false) {
+        if (strpos($this->whiteList, $methodName) !== false) {
             return;
         }
 

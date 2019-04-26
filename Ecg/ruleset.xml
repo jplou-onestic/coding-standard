@@ -13,6 +13,7 @@
         <properties>
             <property name="eolChar" value="\n"/>
         </properties>
+        <type>warning</type>
     </rule>
 
     <rule ref="Generic.Files.LineLength">
@@ -116,6 +117,12 @@
     <rule ref="Ecg.ControlStructures.ElseIfDeclaration"/>
     <rule ref="Ecg.ControlStructures.SpacingAfter">
         <exclude-pattern>*.phtml</exclude-pattern>
+    </rule>
+    <rule ref="Ecg.Methods.MethodDeclaration">
+        <properties>
+            <property name="whiteList" value="_construct,_toHtml,_getPerico" />
+        </properties>
+        <type>error</type>
     </rule>
 
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>

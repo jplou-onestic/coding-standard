@@ -114,6 +114,9 @@
     <rule ref="Ecg.ControlStructures.BlankLineBefore">
         <exclude-pattern>*.phtml</exclude-pattern>
     </rule>
+    <rule ref="Ecg.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
+        <exclude-pattern>*.phtml</exclude-pattern>
+    </rule>
     <rule ref="Ecg.ControlStructures.ElseIfDeclaration"/>
     <rule ref="Ecg.ControlStructures.SpacingAfter">
         <exclude-pattern>*.phtml</exclude-pattern>

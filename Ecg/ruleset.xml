@@ -114,13 +114,16 @@
     <rule ref="Ecg.ControlStructures.BlankLineBefore">
         <exclude-pattern>*.phtml</exclude-pattern>
     </rule>
+    <rule ref="Ecg.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
+        <exclude-pattern>*.phtml</exclude-pattern>
+    </rule>
     <rule ref="Ecg.ControlStructures.ElseIfDeclaration"/>
     <rule ref="Ecg.ControlStructures.SpacingAfter">
         <exclude-pattern>*.phtml</exclude-pattern>
     </rule>
     <rule ref="Ecg.Methods.MethodDeclaration">
         <properties>
-            <property name="whiteList" value="_construct,_toHtml,_getPerico" />
+            <property name="whiteList" value="_construct,_toHtml" />
         </properties>
         <type>error</type>
     </rule>

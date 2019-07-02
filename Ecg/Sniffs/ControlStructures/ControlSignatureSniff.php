@@ -87,7 +87,7 @@ class ControlSignatureSniff implements Sniff
             $isAlternative = false;
             $error = 'Alternative syntax for control structure in php file. Replace : with {';
 
-            $phpcsFile->addError($error, $stackPtr, 'DeadToAlternativeSyntax');
+            $phpcsFile->addError($error, $stackPtr, 'NotAllowedAlternativeSyntax');
         }
 
         // Single space after the keyword.

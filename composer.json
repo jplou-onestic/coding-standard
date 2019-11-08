@@ -1,21 +1,6 @@
 {
-    "name": "onestic/coding-standard",
+    "name": "rocket/component-coding-standard",
     "description": "A fork of magento-ecg/coding-standard set of PHP_CodeSniffer rules and sniffs.",
-    "homepage": "https://github.com/onestic/coding-standard",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Magento Expert Consulting Group",
-            "homepage": "http://magentocommerce.com/consulting",
-            "role": "Maintainer"
-        }, 
-        {
-            "name": "Onestic",
-            "homepage": "https://onestic.com",
-            "role": "Forkers"
-        }
-    ],
-    "require": {
-        "php": ">=5.4.0"
-    }
+    "type": "magento2-component",
+    "version": "1.0.0"
 }

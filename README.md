@@ -1,6 +1,6 @@
 # Onestic Code Sniffer Coding Standard for Magento
 
-This project is a fork of https://github.com/magento-ecg/coding-standard, extended with new sniffers and extra rule to comply with [Onestic Coding Standards](doc/onestic-coding-standards.md).
+This project is a fork of https://github.com/magento-ecg/coding-standard, extended with new sniffers and extra rules to comply with [Onestic Coding Standards](doc/onestic-coding-standards.md).
 
 This rules must be applied in all code developed in Onestic.
 

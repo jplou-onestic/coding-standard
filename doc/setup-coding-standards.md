@@ -10,36 +10,37 @@ For applying most of defined format rules in PhpStorm, load [php-code-style.xml 
 
 ## How to start
 
-You'll need to require component in project's composer.json
+This component is required in Rocket Mission control.
+
+For adding it to a standalone project, you'll need to require component in project's composer.json
 
 ```composer require --dev onestic/coding-standard:1.0.0```
 
 ## Code Sniffer (CS) & Mess Detector (MD) configurations in PhpStorm
 
-First you have to enable CS and MD in project configuration in _"Languages & Frameworks > Php > Quality tools"_ and set executable files from _[project-folder]/vendor/bin/_ folder.
+### Quality tools
+
+First you have to enable CS and MD in project configuration in `Languages & Frameworks > Php > Quality tools` and set executable files from _[project-folder]/vendor/bin/_ folder.
 
 ![Code Sniffer config](./images/phpstorm/settings-qt-cs.png)
 
 ![Mess Detector config](./images/phpstorm/settings-qt-md.png)
 
-In old PhpStorm versions, CS and MD configurations are managed from _"Php > Code Sniffer"_ and _"Php > Mess Detector"_ options.
+In old PhpStorm versions, CS and MD configurations are managed from `Php > Code Sniffer` and `Php > Mess Detector` options.
 
+### Inspectors
 
-To set both sniffers check inspector configuration in _"Settings > Editor > Inspections > Php"_ and check this options:
+To set rules for both sniffers, check inspectors configuration in `Settings > Editor > Inspections > Php` and check this options:
 
-1 - In Code Sniffer config, _"Coding Standard"_ option must be set to _"Custom"_ and in file selector, ruleset.xml file path must be set to _[project-folder]/vendor/onestic/coding-standard/Ecg2/ruleset.xml_
+* Code Sniffer config, _"Coding Standard"_ option must be set to _"Custom"_ and in file selector, ruleset.xml file path must be set to _[project-folder]/vendor/onestic/coding-standard/Ecg2/ruleset.xml_
 
-In option block _"Check files with extension"_ set value _php,phtml_ for sniffing this files (old PhpStorm versions doesn't have this extension management or have checkboxes to set extensions).
+* In option block _"Check files with extension"_ set value _php,phtml_ for sniffing this files (old PhpStorm versions doesn't have this extension management or have checkboxes to set extensions).
 
 ![Code Sniffer inspector config](./images/phpstorm/inspectors-cs.png)
   
-2 - In Mess Detector config, check set options are:
+In Mess Detector config set Code Size Rules from default Magento 2 ruleset at:
  
-- Naming Rules
-
-- Unused Code Rules
-
-And set Code Size Rules from our custom ruleset in: _[project-folder]/vendor/onestic/coding-standard-files/phpmd/codesize.xml_
+_[project-folder]/dev/tests/static/testsuite/Magento/Test/Php/_files/phpmd/ruleset.xml_
 
 ![Mess Detector inspector config](./images/phpstorm/inspectors-md.png)
 

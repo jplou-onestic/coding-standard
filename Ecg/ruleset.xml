@@ -125,7 +125,7 @@
         <properties>
             <property name="whiteList" value="_construct,_toHtml,_getElementHtml" />
         </properties>
-        <type>error</type>
+        <type>warning</type>
     </rule>
 
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
